@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+J:\ProyectoEclipse2024\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3838867192.index
+\PROYSERVICES\src\main\java
+J:\ProyectoEclipse2024\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4013271507.index
+\FrontEnd\src\main\java

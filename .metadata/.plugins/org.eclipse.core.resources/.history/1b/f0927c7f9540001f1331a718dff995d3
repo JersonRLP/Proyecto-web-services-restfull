@@ -1,0 +1,42 @@
+package Configuracion;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import Resource.UsuarioResource;
+
+import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.server.ResourceConfig;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import javax.ws.rs.ApplicationPath;
+import adapter.LocalDateAdapter;
+import adapter.LocalDateTimeAdapter;
+
+
+@ApplicationPath("App")
+public class Configuracion extends ResourceConfig {
+	 public Configuracion() {
+	        // Register Jackson feature
+	        register(JacksonFeature.class);
+
+	        // Create and configure ObjectMapper
+	        ObjectMapper objectMapper = new ObjectMapper();
+	        objectMapper.registerModule(new JavaTimeModule());
+	        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+	        objectMapper.setDateFormat(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
+
+	        // Register the ObjectMapper context resolver
+	        register(new ObjectMapperContextResolver());
+
+	        // Register your resources and providers here
+	        packages("empresa.pe.Configuracion");
+	        packages("empresa.pe.Resource");
+	        packages("empresa.pe.Util");
+	    }
+}

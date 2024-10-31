@@ -1,0 +1,41 @@
+package Configuracion;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+
+import Resource.UsuarioResource;
+
+import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.server.ResourceConfig;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import javax.ws.rs.ApplicationPath;
+import adapter.LocalDateAdapter;
+import adapter.LocalDateTimeAdapter;
+
+@ApplicationPath("App")
+public class Configuracion extends ResourceConfig {
+    public Configuracion() {
+        // Register the Jackson feature
+        register(JacksonFeature.class);
+        register(UsuarioResource.class);
+        // Create and configure ObjectMapper
+        ObjectMapper objectMapper = new ObjectMapper();
+        SimpleModule module = new SimpleModule();
+        module.addDeserializer(LocalDate.class, new LocalDateAdapter.LocalDateDeserializer());
+        module.addSerializer(LocalDate.class, new LocalDateAdapter.LocalDateSerializer());
+        module.addDeserializer(LocalDateTime.class, new LocalDateTimeAdapter.LocalDateTimeDeserializer());
+        module.addSerializer(LocalDateTime.class, new LocalDateTimeAdapter.LocalDateTimeSerializer());
+        objectMapper.registerModule(module);
+
+        // Register the ObjectMapper context resolver
+        register(new ObjectMapperContextResolver(objectMapper));
+
+        // Register your resources and providers here
+        packages("empresa.pe.Configuracion");
+        packages("empresa.pe.Resource");
+        packages("empresa.pe.Util");
+    }
+}

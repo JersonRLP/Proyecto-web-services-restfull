@@ -1,0 +1,20 @@
+package Configuracion;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.server.ResourceConfig;
+
+import javax.ws.rs.ApplicationPath;
+
+import adapter.LocalDateAdapter;
+import adapter.LocalDateTimeAdapter;
+
+@ApplicationPath("App")
+public class Configuracion extends ResourceConfig {
+    public Configuracion() {
+        register(JacksonFeature.class);
+        register(CustomObjectMapperProvider.class);
+        packages("Resource"); // Paquete donde están tus recursos
+    }
+}

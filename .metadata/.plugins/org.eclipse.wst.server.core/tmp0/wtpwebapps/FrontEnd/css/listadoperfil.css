@@ -1,0 +1,130 @@
+  body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 20px;
+            display: flex; /* Utilizamos flexbox para manejar el layout */
+        }
+        .container {
+            max-width: 800px;
+            
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1; /* El contenido flex se expandirá para llenar el espacio restante */
+            overflow-x: auto; /* Agregar scroll horizontal si es necesario */
+            margin-left: 350px;
+            margin-top: 100px;
+        }
+        
+        .container-usuario {
+            
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1; /* El contenido flex se expandirá para llenar el espacio restante */
+            overflow-x: auto; /* Agregar scroll horizontal si es necesario */
+        }
+        h1 {
+            color: #4CAF50; /* Verde principal */
+            text-align: center;
+        }
+       table {
+        width: 100%; /* Ocupa el ancho completo del contenedor */
+        border-collapse: collapse; /* Fusiona los bordes de las celdas */
+        margin-top: 20px; /* Espacio superior para separar del título */
+    }
+       th, td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd; /* Borde inferior para las filas */
+    }
+    th {
+        background-color: #f2f2f2; /* Fondo gris claro para los encabezados */
+    }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Fondo gris claro */
+        }
+        .actions a {
+            text-decoration: none;
+            padding: 5px 10px;
+            background-color: #fdd835; /* Amarillo */
+            color: #333;
+            border-radius: 4px;
+        }
+        .actions a:hover {
+            background-color: #ffee58; /* Amarillo claro al pasar el mouse */
+        }
+
+        /* Estilo para el sidebar */
+        .sidebar {
+            width: 250px; /* Ancho del sidebar */
+            background-color: #333; /* Color de fondo del sidebar */
+            color: white; /* Color de texto del sidebar */
+            padding: 20px;
+        }
+        
+        
+  			.form-container {
+             max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1; 
+            
+        }
+
+        form {
+            width: 100%;
+        }
+        .form-input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-submit {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        .form-submit:hover {
+            background-color: #45a049;
+        }
+
+    
+        
+        
+        
+        
+        
+        .container-registro {
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            height: 210px;
+            
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+        }
+      
+        .form-submit:hover {
+            background-color: #45a049;
+        }
+        
+        
+        

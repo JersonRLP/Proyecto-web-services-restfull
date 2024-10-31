@@ -1,0 +1,22 @@
+package Configuracion;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+
+import adapter.LocalDateAdapter;
+import adapter.LocalDateTimeAdapter;
+
+public class CustomObjectMapper extends ObjectMapper {
+    public CustomObjectMapper() {
+        SimpleModule module = new SimpleModule();
+        module.addSerializer(LocalDate.class, new LocalDateAdapter.LocalDateSerializer());
+        module.addDeserializer(LocalDate.class, new LocalDateAdapter.LocalDateDeserializer());
+        module.addSerializer(LocalDateTime.class, new LocalDateTimeAdapter.LocalDateTimeSerializer());
+        module.addDeserializer(LocalDateTime.class, new LocalDateTimeAdapter.LocalDateTimeDeserializer());
+        registerModule(module);
+    }
+}
+

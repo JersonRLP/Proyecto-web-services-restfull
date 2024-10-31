@@ -1,0 +1,18 @@
+package Configuracion;
+
+
+
+import javax.ws.rs.ApplicationPath;
+
+import org.glassfish.jersey.server.ResourceConfig;
+
+
+
+@ApplicationPath("App")
+public class Configuracion extends ResourceConfig {
+    public Configuracion() {
+        register(ObjectMapperContextResolver.class);
+        packages("empresa.pe.Resource");  // Aquí registra tus recursos Jersey
+    }
+}
+

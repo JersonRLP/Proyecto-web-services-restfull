@@ -1,0 +1,34 @@
+package Configuracion;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import javax.ws.rs.ext.ContextResolver;
+import javax.ws.rs.ext.Provider;
+
+@Provider
+public class ObjectMapperContextResolver implements ContextResolver<ObjectMapper> {
+
+    private final ObjectMapper objectMapper;
+
+    public ObjectMapperContextResolver() {
+        this.objectMapper = createObjectMapper();
+    }
+
+    @Override
+    public ObjectMapper getContext(Class<?> type) {
+        return objectMapper;
+    }
+
+    private ObjectMapper createObjectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        
+        // Configurar ObjectMapper con módulo para fechas Java 8+
+        objectMapper.registerModule(new JavaTimeModule());
+        
+        // Habilitar características de serialización/deserialización si es necesario
+        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        
+        return objectMapper;
+    }
+}

@@ -1,0 +1,22 @@
+package Configuracion;
+
+import javax.ws.rs.ApplicationPath;
+import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.server.ResourceConfig;
+
+@ApplicationPath("App")
+public class Configuracion extends ResourceConfig {
+
+    public Configuracion() {
+        // Registrar Jackson Feature
+        register(JacksonFeature.class);
+
+        // Registrar ContextResolver para ObjectMapper
+        register(ObjectMapperContextResolver.class);
+
+        // Registrar tus recursos y proveedores aquí
+        packages("laureano.po.Configuracion");
+        packages("laureano.po.Resource");
+        packages("laureano.po.Util");
+    }
+}
